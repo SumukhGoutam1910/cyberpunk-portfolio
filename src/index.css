@@ -3,6 +3,9 @@
 @import "tw-animate-css";
 @custom-variant dark (&:is(.dark *));
 
+/* Import cyberpunk fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Fira+Code:wght@300;400;500;600;700&display=swap');
+
 /* DO NOT CHANGE */
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -42,85 +45,213 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* CHANGE VALUES FOR THEME */
+/* CYBERPUNK THEME COLORS */
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --radius: 0.5rem;
+  --background: oklch(0.05 0 0); /* Deep black */
+  --foreground: oklch(0.95 0 0); /* Bright white */
+  --card: oklch(0.08 0 0); /* Dark card background */
+  --card-foreground: oklch(0.95 0 0);
+  --popover: oklch(0.08 0 0);
+  --popover-foreground: oklch(0.95 0 0);
+  --primary: oklch(0.7 0.3 195); /* Cyan */
+  --primary-foreground: oklch(0.05 0 0);
+  --secondary: oklch(0.15 0 0);
+  --secondary-foreground: oklch(0.95 0 0);
+  --muted: oklch(0.12 0 0);
+  --muted-foreground: oklch(0.6 0 0);
+  --accent: oklch(0.15 0 0);
+  --accent-foreground: oklch(0.95 0 0);
+  --destructive: oklch(0.6 0.25 25);
+  --border: oklch(0.2 0.1 195); /* Cyan border */
+  --input: oklch(0.12 0 0);
+  --ring: oklch(0.7 0.3 195);
+  --chart-1: oklch(0.7 0.3 195); /* Cyan */
+  --chart-2: oklch(0.7 0.3 320); /* Pink */
+  --chart-3: oklch(0.7 0.3 120); /* Green */
+  --chart-4: oklch(0.7 0.3 60); /* Yellow */
+  --chart-5: oklch(0.7 0.3 280); /* Purple */
+  --sidebar: oklch(0.08 0 0);
+  --sidebar-foreground: oklch(0.95 0 0);
+  --sidebar-primary: oklch(0.7 0.3 195);
+  --sidebar-primary-foreground: oklch(0.05 0 0);
+  --sidebar-accent: oklch(0.15 0 0);
+  --sidebar-accent-foreground: oklch(0.95 0 0);
+  --sidebar-border: oklch(0.2 0.1 195);
+  --sidebar-ring: oklch(0.7 0.3 195);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: oklch(0.03 0 0);
+  --foreground: oklch(0.98 0 0);
+  --card: oklch(0.06 0 0);
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.06 0 0);
+  --popover-foreground: oklch(0.98 0 0);
+  --primary: oklch(0.8 0.3 195);
+  --primary-foreground: oklch(0.03 0 0);
+  --secondary: oklch(0.1 0 0);
+  --secondary-foreground: oklch(0.98 0 0);
+  --muted: oklch(0.08 0 0);
+  --muted-foreground: oklch(0.7 0 0);
+  --accent: oklch(0.1 0 0);
+  --accent-foreground: oklch(0.98 0 0);
+  --destructive: oklch(0.7 0.25 25);
+  --border: oklch(0.15 0.1 195);
+  --input: oklch(0.08 0 0);
+  --ring: oklch(0.8 0.3 195);
+  --chart-1: oklch(0.8 0.3 195);
+  --chart-2: oklch(0.8 0.3 320);
+  --chart-3: oklch(0.8 0.3 120);
+  --chart-4: oklch(0.8 0.3 60);
+  --chart-5: oklch(0.8 0.3 280);
+  --sidebar: oklch(0.06 0 0);
+  --sidebar-foreground: oklch(0.98 0 0);
+  --sidebar-primary: oklch(0.8 0.3 195);
+  --sidebar-primary-foreground: oklch(0.03 0 0);
+  --sidebar-accent: oklch(0.1 0 0);
+  --sidebar-accent-foreground: oklch(0.98 0 0);
+  --sidebar-border: oklch(0.15 0.1 195);
+  --sidebar-ring: oklch(0.8 0.3 195);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  
   body {
     @apply bg-background text-foreground;
+    font-family: 'Fira Code', 'Courier New', monospace;
+    background: radial-gradient(ellipse at center, rgba(0, 10, 10, 0.8) 0%, rgba(0, 0, 0, 1) 100%);
   }
+  
   button:not([disabled]),
   [role="button"]:not([disabled]) {
     cursor: pointer;
   }
+
+  /* Cyberpunk scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #00ffff, #ff0080);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #00cccc, #cc0066);
+  }
+
+  /* Cyberpunk selection */
+  ::selection {
+    background: rgba(0, 255, 255, 0.3);
+    color: #ffffff;
+  }
+
+  /* Neon glow utilities */
+  .neon-cyan {
+    text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff;
+  }
+  
+  .neon-pink {
+    text-shadow: 0 0 5px #ff0080, 0 0 10px #ff0080, 0 0 15px #ff0080;
+  }
+  
+  .neon-green {
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
+  }
+
+  /* Glitch animation */
+  @keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+  }
+  
+  .glitch {
+    animation: glitch 0.3s infinite;
+  }
+
+  /* Scan lines effect */
+  @keyframes scan-lines {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
+  }
+  
+  .scan-lines::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00ffff, transparent);
+    animation: scan-lines 3s linear infinite;
+  }
+
+  /* Holographic effect */
+  .holographic {
+    background: linear-gradient(45deg, 
+      rgba(0, 255, 255, 0.1) 0%, 
+      rgba(255, 0, 128, 0.1) 25%, 
+      rgba(0, 255, 0, 0.1) 50%, 
+      rgba(255, 0, 128, 0.1) 75%, 
+      rgba(0, 255, 255, 0.1) 100%);
+    background-size: 400% 400%;
+    animation: holographic 4s ease-in-out infinite;
+  }
+  
+  @keyframes holographic {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Matrix rain effect */
+  .matrix-rain {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .matrix-rain::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    right: 0;
+    height: 200%;
+    background-image: 
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 255, 0, 0.03) 2px,
+        rgba(0, 255, 0, 0.03) 4px
+      );
+    animation: matrix-rain 20s linear infinite;
+    pointer-events: none;
+  }
+  
+  @keyframes matrix-rain {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+}
+
+/* Custom font classes */
+.font-orbitron {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.font-fira-code {
+  font-family: 'Fira Code', monospace;
 }

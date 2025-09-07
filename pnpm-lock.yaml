@@ -140,6 +140,9 @@ importers:
       framer-motion:
         specifier: ^12.15.0
         version: 12.15.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      framer-motion-3d:
+        specifier: ^12.4.13
+        version: 12.4.13(@react-three/fiber@9.1.2(@types/react@19.1.6)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(three@0.177.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(three@0.177.0)
       hono:
         specifier: ^4.7.11
         version: 4.7.11
@@ -2400,6 +2403,15 @@ packages:
     resolution: {integrity: sha512-hGfm/slu0ZabnNt4oaRZ6uREyfCj6P4fT/n6A1rGV+Z0VdGXjfOhVUpkn6qVQONHGIFwmveGXyDs75+nr6FM8w==}
     engines: {node: '>= 6'}
 
+  framer-motion-3d@12.4.13:
+    resolution: {integrity: sha512-QE5JTZHE+bguGNLsnu3raLJP5QR8PVKiB0GXXWLg1paxa0GF8QDJx2G13J8TevAzZ+8HI7O5ishk1VnDd2jzTQ==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+    peerDependencies:
+      '@react-three/fiber': 8.2.2
+      react: '>=18.0'
+      react-dom: '>=18.0'
+      three: '>=0.133'
+
   framer-motion@12.15.0:
     resolution: {integrity: sha512-XKg/LnKExdLGugZrDILV7jZjI599785lDIJZLxMiiIFidCsy0a4R2ZEf+Izm67zyOuJgQYTHOmodi7igQsw3vg==}
     peerDependencies:
@@ -2902,6 +2914,9 @@ packages:
 
   react-is@18.3.1:
     resolution: {integrity: sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==}
+
+  react-merge-refs@2.1.1:
+    resolution: {integrity: sha512-jLQXJ/URln51zskhgppGJ2ub7b2WFKGq3cl3NYKtlHoTG+dN2q7EzWrn3hN3EgPsTMvpR9tpq5ijdp7YwFZkag==}
 
   react-reconciler@0.31.0:
     resolution: {integrity: sha512-7Ob7Z+URmesIsIVRjnLoDGwBEG/tVitidU0nMsqX/eeJaLY89RISO/10ERe0MqmzuKUUB1rmY+h1itMbUHg9BQ==}
@@ -5375,6 +5390,17 @@ snapshots:
       es-set-tostringtag: 2.1.0
       mime-types: 2.1.35
 
+  framer-motion-3d@12.4.13(@react-three/fiber@9.1.2(@types/react@19.1.6)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(three@0.177.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(three@0.177.0):
+    dependencies:
+      '@react-three/fiber': 9.1.2(@types/react@19.1.6)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(three@0.177.0)
+      framer-motion: 12.15.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
+      react-merge-refs: 2.1.1
+      three: 0.177.0
+    transitivePeerDependencies:
+      - '@emotion/is-prop-valid'
+
   framer-motion@12.15.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
       motion-dom: 12.15.0
@@ -5777,6 +5803,8 @@ snapshots:
   react-is@16.13.1: {}
 
   react-is@18.3.1: {}
+
+  react-merge-refs@2.1.1: {}
 
   react-reconciler@0.31.0(react@19.1.0):
     dependencies:
