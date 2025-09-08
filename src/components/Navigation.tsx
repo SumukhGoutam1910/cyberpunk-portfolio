@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Code, Home, Mail, User, Zap } from 'lucide-react';
+import { Code, Home, Mail, User, Zap, Quote } from 'lucide-react';
 import { useState } from 'react';
 
 interface NavigationProps {
@@ -15,6 +15,7 @@ export function Navigation({ activeSection, onSectionChange }: NavigationProps) 
     { id: 'about', label: 'About', icon: User },
     { id: 'projects', label: 'Projects', icon: Code },
     { id: 'skills', label: 'Skills', icon: Zap },
+    { id: 'testimonials', label: 'Testimonials', icon: Quote },
     { id: 'contact', label: 'Contact', icon: Mail },
   ];
 

@@ -20,7 +20,8 @@ import {
   Rocket, 
   Terminal, 
   Twitter,
-  Zap
+  Zap,
+  Quote
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useQuery } from 'convex/react';
@@ -34,6 +35,38 @@ export default function Landing() {
 
   const projects = useQuery(api.portfolio.getProjects) || [];
   const skills = useQuery(api.portfolio.getSkills);
+
+  // Add: Testimonials data
+  const testimonials = [
+    {
+      name: 'Sarah Lee',
+      role: 'Product Designer @ NeonLabs',
+      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop&crop=face',
+      quote:
+        'Working with Alex felt like collaborating with a creative engine. The attention to detail and performance was next-level.'
+    },
+    {
+      name: 'Marcus Wright',
+      role: 'CTO @ HyperGrid',
+      avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop&crop=face',
+      quote:
+        'He delivered an immersive 3D experience that ran buttery-smooth on all devices. Truly impressive engineering.'
+    },
+    {
+      name: 'Ava Johnson',
+      role: 'Founder @ Synthwave Studio',
+      avatar: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=200&h=200&fit=crop&crop=face',
+      quote:
+        'The cyberpunk aesthetic was executed perfectly—glitch, neon, and depth without sacrificing usability.'
+    },
+    {
+      name: 'Kenji Nakamura',
+      role: 'Lead Dev @ QuantumMesh',
+      avatar: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=200&h=200&fit=crop&crop=face',
+      quote:
+        'Clean architecture, thoughtful animations, and a delightful UX. Would collaborate again in a heartbeat.'
+    },
+  ];
 
   // Filter projects by category
   const categories = ['All', ...Array.from(new Set(projects.map(p => p.category)))];
@@ -54,7 +87,8 @@ export default function Landing() {
       { threshold: 0.3 }
     );
 
-    const sections = ['hero', 'about', 'projects', 'skills', 'contact'];
+    // Add: 'testimonials' to observed sections
+    const sections = ['hero', 'about', 'projects', 'skills', 'testimonials', 'contact'];
     sections.forEach((id) => {
       const element = document.getElementById(id);
       if (element) observer.observe(element);
@@ -379,6 +413,117 @@ export default function Landing() {
               </p>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section id="testimonials" className="py-20 relative z-10">
+        <div className="max-w-7xl mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-6xl font-bold mb-6">
+              <GlitchText>TESTIMONIALS.LOG</GlitchText>
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-pink-500 mx-auto" />
+          </motion.div>
+
+          {/* Marquee Rows */}
+          <div className="space-y-10">
+            {/* Row 1 */}
+            <div className="relative overflow-hidden">
+              <motion.div
+                className="flex gap-6 will-change-transform"
+                animate={{ x: ['0%', '-50%'] }}
+                transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+              >
+                {[...testimonials, ...testimonials].map((t, i) => (
+                  <motion.div
+                    key={`row1-${i}-${t.name}`}
+                    className="group min-w-[320px] max-w-[320px] bg-black/70 border border-cyan-500/30 rounded-xl p-6 backdrop-blur-md"
+                    whileHover={{ rotateY: 6, rotateX: 2, z: 40, scale: 1.02 }}
+                    transition={{ type: 'spring', stiffness: 120, damping: 12 }}
+                    style={{
+                      transformStyle: 'preserve-3d',
+                      perspective: '1000px',
+                    }}
+                  >
+                    <div className="flex items-center gap-4 mb-4">
+                      <img
+                        src={t.avatar}
+                        alt={t.name}
+                        className="w-12 h-12 rounded-lg object-cover border border-cyan-500/40"
+                      />
+                      <div>
+                        <div className="text-white font-mono font-bold leading-tight">{t.name}</div>
+                        <div className="text-xs text-gray-400">{t.role}</div>
+                      </div>
+                      <div className="ml-auto p-2 bg-cyan-500/15 border border-cyan-400/40 rounded-lg">
+                        <Quote className="w-4 h-4 text-cyan-400" />
+                      </div>
+                    </div>
+                    <p className="text-gray-300 text-sm leading-relaxed">
+                      "{t.quote}"
+                    </p>
+                    <div className="mt-4 h-px w-full bg-gradient-to-r from-transparent via-cyan-500/40 to-transparent" />
+                    <div className="mt-3 text-[10px] uppercase tracking-widest text-cyan-400/70">
+                      Verified Feedback
+                    </div>
+                    <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-cyan-500/5 via-transparent to-pink-500/5" />
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* Row 2 (reverse direction, slower) */}
+            <div className="relative overflow-hidden">
+              <motion.div
+                className="flex gap-6 will-change-transform"
+                animate={{ x: ['-50%', '0%'] }}
+                transition={{ duration: 26, repeat: Infinity, ease: 'linear' }}
+              >
+                {[...testimonials, ...testimonials].map((t, i) => (
+                  <motion.div
+                    key={`row2-${i}-${t.name}`}
+                    className="group min-w-[320px] max-w-[320px] bg-black/70 border border-pink-500/30 rounded-xl p-6 backdrop-blur-md"
+                    whileHover={{ rotateY: -6, rotateX: 2, z: 40, scale: 1.02 }}
+                    transition={{ type: 'spring', stiffness: 120, damping: 12 }}
+                    style={{
+                      transformStyle: 'preserve-3d',
+                      perspective: '1000px',
+                    }}
+                  >
+                    <div className="flex items-center gap-4 mb-4">
+                      <img
+                        src={t.avatar}
+                        alt={t.name}
+                        className="w-12 h-12 rounded-lg object-cover border border-pink-500/40"
+                      />
+                      <div>
+                        <div className="text-white font-mono font-bold leading-tight">{t.name}</div>
+                        <div className="text-xs text-gray-400">{t.role}</div>
+                      </div>
+                      <div className="ml-auto p-2 bg-pink-500/15 border border-pink-400/40 rounded-lg">
+                        <Quote className="w-4 h-4 text-pink-400" />
+                      </div>
+                    </div>
+                    <p className="text-gray-300 text-sm leading-relaxed">
+                      "{t.quote}"
+                    </p>
+                    <div className="mt-4 h-px w-full bg-gradient-to-r from-transparent via-pink-500/40 to-transparent" />
+                    <div className="mt-3 text-[10px] uppercase tracking-widest text-pink-400/70">
+                      Verified Feedback
+                    </div>
+                    <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-pink-500/5 via-transparent to-cyan-500/5" />
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+          </div>
         </div>
       </section>
 
