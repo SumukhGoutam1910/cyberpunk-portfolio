@@ -567,7 +567,7 @@ export default function Landing() {
                   </div>
                   <div className="flex items-center space-x-4">
                     <Phone className="w-5 h-5 text-pink-400" />
-                    <span className="text-gray-300">+91 89805 94944</span>
+                    <span className="text-gray-300">+91 9860934944</span>
                   </div>
                   <div className="flex items-center space-x-4">
                     <MapPin className="w-5 h-5 text-green-400" />
