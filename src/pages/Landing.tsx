@@ -137,7 +137,7 @@ export default function Landing() {
             transition={{ delay: 0.3, duration: 0.8 }}
           >
             <GlitchText className="text-5xl md:text-7xl font-bold mb-4">
-              ALEX CHEN
+              SUMUKH GOUTAM
             </GlitchText>
             <motion.div
               className="text-2xl md:text-3xl text-cyan-400 mb-6"
@@ -150,11 +150,12 @@ export default function Landing() {
               }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              FULL-STACK DEVELOPER
+              ELECTRONICS & COMPUTER ENGINEERING STUDENT
             </motion.div>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed">
-              Crafting immersive digital experiences with cutting-edge technology. 
-              Specializing in AI, 3D graphics, and cyberpunk aesthetics.
+              Self‑driven and skilled ECE/CSE student with interests in Cybersecurity,
+              Embedded Systems, and modern Web Development. Always learning and
+              building with openness and independence.
             </p>
           </motion.div>
 
@@ -234,17 +235,18 @@ export default function Landing() {
               <div className="bg-black/60 border border-cyan-500/30 rounded-lg p-8 backdrop-blur-sm">
                 <h3 className="text-2xl font-bold text-cyan-400 mb-4 flex items-center">
                   <Brain className="w-6 h-6 mr-2" />
-                  Neural Network Engineer
+                  Electronics & Computer Engineering Student
                 </h3>
                 <p className="text-gray-300 leading-relaxed mb-4">
-                  I'm a passionate full-stack developer with 5+ years of experience building 
-                  cutting-edge applications. My expertise spans from AI/ML implementations 
-                  to immersive 3D web experiences.
+                  I'm a motivated engineering student pursuing ECE with a strong
+                  passion for Cybersecurity, Embedded Systems, and Web Development.
+                  I enjoy working hands‑on, exploring new technologies, and
+                  collaborating to build practical solutions.
                 </p>
                 <p className="text-gray-300 leading-relaxed">
-                  When I'm not coding, you'll find me exploring the latest in cyberpunk 
-                  culture, experimenting with generative art, or contributing to open-source 
-                  projects that push the boundaries of what's possible on the web.
+                  Beyond academics, I love learning about nuclear tech,
+                  reading (novels, human‑psych), and continually sharpening my
+                  problem‑solving mindset.
                 </p>
               </div>
 
@@ -281,7 +283,7 @@ export default function Landing() {
                 >
                   <img
                     src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
-                    alt="Alex Chen"
+                    alt="Sumukh Goutam"
                     className="w-full h-full object-cover rounded-lg"
                   />
                 </motion.div>
@@ -561,21 +563,21 @@ export default function Landing() {
                 <div className="space-y-4">
                   <div className="flex items-center space-x-4">
                     <Mail className="w-5 h-5 text-cyan-400" />
-                    <span className="text-gray-300">alex.chen@cyberdev.io</span>
+                    <span className="text-gray-300">sumukhgoutam0804@gmail.com</span>
                   </div>
                   <div className="flex items-center space-x-4">
                     <Phone className="w-5 h-5 text-pink-400" />
-                    <span className="text-gray-300">+1 (555) 123-4567</span>
+                    <span className="text-gray-300">+91 89805 94944</span>
                   </div>
                   <div className="flex items-center space-x-4">
                     <MapPin className="w-5 h-5 text-green-400" />
-                    <span className="text-gray-300">San Francisco, CA</span>
+                    <span className="text-gray-300">Pune, Maharashtra 411015, India</span>
                   </div>
                 </div>
 
                 <div className="flex space-x-4 mt-8">
                   <motion.a
-                    href="https://github.com"
+                    href="https://github.com/sumukhgoutam"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-3 bg-gray-800/50 border border-gray-600/50 rounded-lg hover:border-cyan-400/50 transition-colors"
@@ -585,7 +587,7 @@ export default function Landing() {
                     <Github className="w-5 h-5 text-gray-300 hover:text-cyan-400" />
                   </motion.a>
                   <motion.a
-                    href="https://linkedin.com"
+                    href="https://www.linkedin.com/in/sumukhgoutam0804"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-3 bg-gray-800/50 border border-gray-600/50 rounded-lg hover:border-cyan-400/50 transition-colors"
@@ -595,14 +597,15 @@ export default function Landing() {
                     <Linkedin className="w-5 h-5 text-gray-300 hover:text-cyan-400" />
                   </motion.a>
                   <motion.a
-                    href="https://twitter.com"
+                    href="https://www.kmapsolver.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-3 bg-gray-800/50 border border-gray-600/50 rounded-lg hover:border-cyan-400/50 transition-colors"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
+                    aria-label="KmapSolver Website"
                   >
-                    <Twitter className="w-5 h-5 text-gray-300 hover:text-cyan-400" />
+                    <Terminal className="w-5 h-5 text-gray-300 hover:text-cyan-400" />
                   </motion.a>
                 </div>
 
@@ -696,7 +699,7 @@ export default function Landing() {
       <footer className="py-8 border-t border-cyan-500/30 bg-black/80 backdrop-blur-sm relative z-10">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p className="text-gray-400 font-mono">
-            © 2024 Alex Chen. Crafted with{' '}
+            © 2024 Sumukh Goutam. Crafted with{' '}
             <span className="text-pink-400">♥</span>{' '}
             in the digital realm.
           </p>

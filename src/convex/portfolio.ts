@@ -4,74 +4,86 @@ import { v } from "convex/values";
 export const getProjects = query({
   args: {},
   handler: async (ctx) => {
-    // Sample portfolio data - in a real app this would come from the database
+    // Updated portfolio data to match resume
     return [
       {
-        id: "1",
-        title: "Neural Network Visualizer",
-        description: "Interactive 3D visualization of neural networks with real-time training data",
-        technologies: ["React", "Three.js", "TensorFlow.js", "WebGL"],
-        category: "AI/ML",
-        image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=600&fit=crop",
-        liveUrl: "https://neural-viz.demo",
-        githubUrl: "https://github.com/user/neural-viz",
-        featured: true
-      },
-      {
-        id: "2",
-        title: "Cyberpunk City Generator",
-        description: "Procedural city generation with neon aesthetics and dynamic lighting",
-        technologies: ["Unity", "C#", "Blender", "HLSL"],
-        category: "Game Dev",
-        image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop",
-        liveUrl: "https://cyber-city.demo",
-        githubUrl: "https://github.com/user/cyber-city",
-        featured: true
-      },
-      {
-        id: "3",
-        title: "Blockchain Analytics Dashboard",
-        description: "Real-time cryptocurrency trading analytics with predictive algorithms",
-        technologies: ["Next.js", "D3.js", "Node.js", "MongoDB"],
+        id: "kmap-1",
+        title: "KmapSolver",
+        description:
+          "Web-based Karnaugh Map solver with minimized boolean expression output, variable grouping, and fast visualization.",
+        technologies: ["HTML", "CSS", "JavaScript", "React", "Tailwind"],
         category: "Web Dev",
-        image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=600&fit=crop",
-        liveUrl: "https://crypto-dash.demo",
-        githubUrl: "https://github.com/user/crypto-dash",
-        featured: false
+        image:
+          "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&h=600&fit=crop",
+        liveUrl: "https://www.kmapsolver.com",
+        githubUrl: "https://www.kmapsolver.com",
+        featured: true,
       },
       {
-        id: "4",
-        title: "AR Hologram Interface",
-        description: "Augmented reality interface for data manipulation in 3D space",
-        technologies: ["ARCore", "Unity", "C#", "OpenCV"],
-        category: "AR/VR",
-        image: "https://images.unsplash.com/photo-1592478411213-6153e4ebc696?w=800&h=600&fit=crop",
-        liveUrl: "https://ar-holo.demo",
-        githubUrl: "https://github.com/user/ar-holo",
-        featured: true
+        id: "bio-2",
+        title: "Smart Biometric Attendance System",
+        description:
+          "Face-recognition based attendance with LCD classroom display and admin dashboard for analytics.",
+        technologies: ["Python", "OpenCV", "Flask", "REST API", "MongoDB"],
+        category: "Embedded",
+        image:
+          "https://images.unsplash.com/photo-1555255707-c07966088b7b?w=800&h=600&fit=crop",
+        liveUrl: "#",
+        githubUrl: "#",
+        featured: true,
       },
       {
-        id: "5",
-        title: "Quantum Computing Simulator",
-        description: "Web-based quantum circuit simulator with educational visualizations",
-        technologies: ["Python", "Qiskit", "React", "WebAssembly"],
-        category: "Research",
-        image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=600&fit=crop",
-        liveUrl: "https://quantum-sim.demo",
-        githubUrl: "https://github.com/user/quantum-sim",
-        featured: false
+        id: "ece-3",
+        title: "ECE Website",
+        description:
+          "Department website built with React and Tailwind; coordinated team execution and content management.",
+        technologies: ["React", "TypeScript", "Tailwind", "Vite"],
+        category: "Web Dev",
+        image:
+          "https://images.unsplash.com/photo-1526378722484-bd91ca387e72?w=800&h=600&fit=crop",
+        liveUrl: "#",
+        githubUrl: "#",
+        featured: false,
       },
       {
-        id: "6",
-        title: "Biometric Security System",
-        description: "Multi-modal biometric authentication using facial and voice recognition",
-        technologies: ["Python", "OpenCV", "TensorFlow", "FastAPI"],
-        category: "Security",
-        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop",
-        liveUrl: "https://bio-sec.demo",
-        githubUrl: "https://github.com/user/bio-sec",
-        featured: false
-      }
+        id: "solar-4",
+        title: "Solar Power Bank",
+        description:
+          "Hardware project using battery protection, TP4056, boost converter, and 18650 cells to deliver stable power.",
+        technologies: ["Hardware", "PCB", "Battery Mgmt"],
+        category: "Hardware",
+        image:
+          "https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=800&h=600&fit=crop",
+        liveUrl: "#",
+        githubUrl: "#",
+        featured: false,
+      },
+      {
+        id: "stock-5",
+        title: "Stock Price Prediction",
+        description:
+          "Neural network model for predicting stock trends; learned teamwork and project coordination.",
+        technologies: ["Python", "TensorFlow", "Data Science"],
+        category: "AI/ML",
+        image:
+          "https://images.unsplash.com/photo-1643195357171-6aa3bf3e54e8?w=800&h=600&fit=crop",
+        liveUrl: "#",
+        githubUrl: "#",
+        featured: false,
+      },
+      {
+        id: "can-6",
+        title: "CAN Adapter Testing Framework",
+        description:
+          "Planned and built a roadmap to integrate RP1210A standards and test CAN connections for automotive modules.",
+        technologies: ["Embedded", "C/C++", "Linux"],
+        category: "Embedded",
+        image:
+          "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=800&h=600&fit=crop",
+        liveUrl: "#",
+        githubUrl: "#",
+        featured: false,
+      },
     ];
   },
 });
@@ -81,33 +93,33 @@ export const getSkills = query({
   handler: async (ctx) => {
     return {
       frontend: [
-        { name: "React/Next.js", level: 95 },
-        { name: "TypeScript", level: 90 },
-        { name: "Three.js/WebGL", level: 85 },
-        { name: "Tailwind CSS", level: 92 },
-        { name: "Framer Motion", level: 88 }
+        { name: "HTML/CSS", level: 90 },
+        { name: "React", level: 85 },
+        { name: "TypeScript", level: 75 },
+        { name: "Tailwind CSS", level: 85 },
+        { name: "Bootstrap", level: 80 },
       ],
       backend: [
-        { name: "Node.js", level: 90 },
-        { name: "Python", level: 88 },
-        { name: "PostgreSQL", level: 85 },
-        { name: "MongoDB", level: 82 },
-        { name: "GraphQL", level: 80 }
+        { name: "Node.js/Express", level: 80 },
+        { name: "Python", level: 75 },
+        { name: "Flask (REST API)", level: 70 },
+        { name: "MongoDB", level: 70 },
+        { name: "PostgreSQL", level: 65 },
       ],
       tools: [
-        { name: "Docker", level: 85 },
-        { name: "AWS/GCP", level: 80 },
-        { name: "Git/GitHub", level: 95 },
-        { name: "Figma", level: 75 },
-        { name: "Blender", level: 70 }
+        { name: "Git/GitHub", level: 90 },
+        { name: "Docker", level: 65 },
+        { name: "Kali Linux/Wireshark", level: 75 },
+        { name: "RedHat & VMs", level: 70 },
+        { name: "OpenCV", level: 70 },
       ],
       ai: [
-        { name: "TensorFlow", level: 85 },
-        { name: "PyTorch", level: 80 },
-        { name: "OpenCV", level: 82 },
-        { name: "Hugging Face", level: 78 },
-        { name: "LangChain", level: 75 }
-      ]
+        { name: "TensorFlow", level: 65 },
+        { name: "Data Science", level: 65 },
+        { name: "LangChain (Learning)", level: 40 },
+        { name: "Dart/Flutter (Learning)", level: 45 },
+        { name: "Cybersecurity (Blue/Red basics)", level: 70 },
+      ],
     };
   },
 });
