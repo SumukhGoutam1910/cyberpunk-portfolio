@@ -610,8 +610,9 @@ export default function Landing() {
                 </div>
 
                 <motion.a
-                  href="/resume.pdf"
-                  download
+                  href="https://drive.google.com/file/d/1xupF_5jJIMEe4ZLYDjs6-FQcCEnmoxcl/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 mt-6 px-6 py-3 bg-gradient-to-r from-cyan-500 to-pink-500 text-black font-bold rounded-lg hover:from-cyan-600 hover:to-pink-600 transition-all"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
