@@ -42,6 +42,30 @@ export function CyberpunkBackground() {
       speed: Math.random() * 0.2 + 0.05,
     }));
 
+    // Add: shooting stars
+    type ShootingStar = { x: number; y: number; vx: number; vy: number; life: number; maxLife: number };
+    const shootingStars: Array<ShootingStar> = [];
+
+    // Helper: spawn a shooting star occasionally
+    const maybeSpawnShootingStar = () => {
+      if (shootingStars.length > 4) return; // cap
+      if (Math.random() < 0.008) {
+        const fromLeft = Math.random() < 0.5;
+        const startX = fromLeft ? -50 : window.innerWidth + 50;
+        const startY = Math.random() * window.innerHeight * 0.5;
+        const speed = 6 + Math.random() * 4;
+        const angle = fromLeft ? (Math.PI / 4) : (3 * Math.PI) / 4;
+        shootingStars.push({
+          x: startX,
+          y: startY,
+          vx: (fromLeft ? 1 : -1) * Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed * 0.6,
+          life: 0,
+          maxLife: 80 + Math.random() * 60,
+        });
+      }
+    };
+
     let animationFrame: number;
 
     const drawGrid = (time: number) => {
@@ -75,6 +99,38 @@ export function CyberpunkBackground() {
       }
       ctx.restore();
       ctx.globalAlpha = 1;
+
+      // Aurora / nebula ribbons behind grid for depth
+      ctx.save();
+      const t = time * 0.0004;
+      for (let i = 0; i < 2; i++) {
+        const baseY = h * (0.18 + i * 0.07);
+        const amp = 28 + i * 18;
+        const freq = 0.002 + i * 0.0008;
+
+        const grad = ctx.createLinearGradient(0, baseY - 120, 0, baseY + 120);
+        grad.addColorStop(0, 'rgba(0,255,255,0.02)');
+        grad.addColorStop(0.5, i === 0 ? 'rgba(255,0,128,0.06)' : 'rgba(0,255,255,0.06)');
+        grad.addColorStop(1, 'rgba(0,255,255,0.02)');
+
+        ctx.globalCompositeOperation = 'lighter';
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.moveTo(0, baseY);
+        for (let x = 0; x <= w; x += 8) {
+          const y =
+            baseY +
+            Math.sin(x * freq + t * 6 + i) * amp +
+            Math.sin(x * (freq * 0.6) + t * 4.2 + i * 2.3) * (amp * 0.4);
+          ctx.lineTo(x, y);
+        }
+        ctx.lineTo(w, baseY + 180);
+        ctx.lineTo(0, baseY + 180);
+        ctx.closePath();
+        ctx.fill();
+      }
+      ctx.restore();
+      ctx.globalCompositeOperation = 'source-over';
 
       // Perspective ground grid (retro synthwave style)
       const vpX = w / 2 + mouse.x * 40;           // vanishing point X with mouse sway
@@ -117,6 +173,68 @@ export function CyberpunkBackground() {
         ctx.stroke();
       }
 
+      // Add: subtle rotating hex wireframe field for extra depth (below horizon)
+      ctx.save();
+      const hexSize = 60;
+      const rot = t * 0.35;
+      ctx.translate(w / 2 + mouse.x * 60, (h + horizonY) / 2 + 40);
+      ctx.rotate(rot);
+      ctx.translate(-(w / 2 + mouse.x * 60), -((h + horizonY) / 2 + 40));
+      ctx.strokeStyle = 'rgba(0, 255, 255, 0.06)';
+      ctx.lineWidth = 1;
+
+      const drawHex = (cx: number, cy: number, r: number) => {
+        ctx.beginPath();
+        for (let a = 0; a < 6; a++) {
+          const ang = (Math.PI / 3) * a;
+          const x = cx + Math.cos(ang) * r;
+          const y = cy + Math.sin(ang) * r;
+          if (a === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.closePath();
+        ctx.stroke();
+      };
+
+      const stepX = hexSize * 1.5;
+      const stepY = Math.sqrt(3) * hexSize * 0.5;
+      for (let y = horizonY + 60; y < h + hexSize; y += stepY) {
+        const offsetX = ((Math.floor((y - horizonY) / stepY) % 2) * hexSize) / 2;
+        for (let x = -hexSize; x < w + hexSize; x += stepX) {
+          drawHex(x + offsetX, y, hexSize * 0.5);
+        }
+      }
+      ctx.restore();
+
+      // Shooting stars layer (on top but behind UI overlays)
+      ctx.save();
+      maybeSpawnShootingStar();
+      for (let i = shootingStars.length - 1; i >= 0; i--) {
+        const s = shootingStars[i];
+        s.x += s.vx;
+        s.y += s.vy;
+        s.life += 1;
+
+        const alpha = Math.max(0, 1 - s.life / s.maxLife);
+        ctx.strokeStyle = `rgba(255, 255, 255, ${0.2 * alpha})`;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(s.x, s.y);
+        ctx.lineTo(s.x - s.vx * 3, s.y - s.vy * 3);
+        ctx.stroke();
+
+        // glow head
+        ctx.fillStyle = `rgba(0, 255, 255, ${0.25 * alpha})`;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, 2.5, 0, Math.PI * 2);
+        ctx.fill();
+
+        if (s.life >= s.maxLife || s.x < -60 || s.x > w + 60 || s.y > h + 60) {
+          shootingStars.splice(i, 1);
+        }
+      }
+      ctx.restore();
+
       // Neon scan line
       const scanLineY = (time * 0.1) % h;
       ctx.strokeStyle = 'rgba(0, 255, 255, 0.35)';
@@ -133,6 +251,15 @@ export function CyberpunkBackground() {
         ctx.fillStyle = 'rgba(255, 0, 128, 0.07)';
         ctx.fillRect(0, glitchY, w, glitchHeight);
       }
+
+      // Add: subtle vignette to focus attention
+      ctx.save();
+      const vignette = ctx.createRadialGradient(w / 2, h / 2, Math.min(w, h) * 0.3, w / 2, h / 2, Math.max(w, h) * 0.7);
+      vignette.addColorStop(0, 'rgba(0,0,0,0)');
+      vignette.addColorStop(1, 'rgba(0,0,0,0.35)');
+      ctx.fillStyle = vignette;
+      ctx.fillRect(0, 0, w, h);
+      ctx.restore();
 
       animationFrame = requestAnimationFrame(drawGrid);
     };
