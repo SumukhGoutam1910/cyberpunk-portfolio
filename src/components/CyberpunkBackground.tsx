@@ -235,15 +235,6 @@ export function CyberpunkBackground() {
       }
       ctx.restore();
 
-      // Neon scan line
-      const scanLineY = (time * 0.1) % h;
-      ctx.strokeStyle = 'rgba(0, 255, 255, 0.35)';
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(0, scanLineY);
-      ctx.lineTo(w, scanLineY);
-      ctx.stroke();
-
       // Occasional holographic glitch bands
       if (Math.random() < 0.02) {
         const glitchY = Math.random() * h * 0.8 + horizonY * 0.1;
