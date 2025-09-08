@@ -103,7 +103,7 @@ export default function Landing() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white font-mono overflow-x-hidden">
+    <div className="min-h-screen bg-black text-white font-mono overflow-x-hidden pt-16">
       <CyberpunkBackground />
       <Navigation activeSection={activeSection} onSectionChange={setActiveSection} />
 
@@ -136,7 +136,7 @@ export default function Landing() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            <GlitchText className="text-6xl md:text-8xl font-bold mb-4">
+            <GlitchText className="text-5xl md:text-7xl font-bold mb-4">
               ALEX CHEN
             </GlitchText>
             <motion.div
@@ -444,7 +444,7 @@ export default function Landing() {
                 {[...testimonials, ...testimonials].map((t, i) => (
                   <motion.div
                     key={`row1-${i}-${t.name}`}
-                    className="group min-w-[320px] max-w-[320px] bg-black/70 border border-cyan-500/30 rounded-xl p-6 backdrop-blur-md"
+                    className="group min-w-[260px] sm:min-w-[320px] max-w-[260px] sm:max-w-[320px] bg-black/70 border border-cyan-500/30 rounded-xl p-6 backdrop-blur-md"
                     whileHover={{ rotateY: 6, rotateX: 2, z: 40, scale: 1.02 }}
                     transition={{ type: 'spring', stiffness: 120, damping: 12 }}
                     style={{
@@ -489,7 +489,7 @@ export default function Landing() {
                 {[...testimonials, ...testimonials].map((t, i) => (
                   <motion.div
                     key={`row2-${i}-${t.name}`}
-                    className="group min-w-[320px] max-w-[320px] bg-black/70 border border-pink-500/30 rounded-xl p-6 backdrop-blur-md"
+                    className="group min-w-[260px] sm:min-w-[320px] max-w-[260px] sm:max-w-[320px] bg-black/70 border border-pink-500/30 rounded-xl p-6 backdrop-blur-md"
                     whileHover={{ rotateY: -6, rotateX: 2, z: 40, scale: 1.02 }}
                     transition={{ type: 'spring', stiffness: 120, damping: 12 }}
                     style={{

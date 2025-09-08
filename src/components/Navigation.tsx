@@ -73,9 +73,10 @@ export function Navigation({ activeSection, onSectionChange }: NavigationProps) 
 
             {/* Mobile Menu Button */}
             <motion.button
-              className="md:hidden p-2 text-white"
+              className="md:hidden p-2 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-0"
               onClick={() => setIsOpen(!isOpen)}
               whileTap={{ scale: 0.95 }}
+              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
             >
               <div className="w-6 h-6 flex flex-col justify-center space-y-1">
                 <motion.div
@@ -95,6 +96,15 @@ export function Navigation({ activeSection, onSectionChange }: NavigationProps) 
           </div>
         </div>
 
+        {/* Mobile Backdrop (tap to close) */}
+        {isOpen && (
+          <div
+            className="fixed inset-0 top-16 bg-black/50 backdrop-blur-sm md:hidden"
+            onClick={() => setIsOpen(false)}
+            aria-hidden="true"
+          />
+        )}
+
         {/* Mobile Menu */}
         <motion.div
           className="md:hidden bg-black/90 backdrop-blur-md border-t border-cyan-500/30"
@@ -103,7 +113,7 @@ export function Navigation({ activeSection, onSectionChange }: NavigationProps) 
           transition={{ duration: 0.3 }}
           style={{ overflow: 'hidden' }}
         >
-          <div className="px-4 py-4 space-y-2">
+          <div className="px-4 py-4 space-y-2 pb-[max(1rem,env(safe-area-inset-bottom))]">
             {navItems.map((item) => (
               <motion.button
                 key={item.id}
@@ -111,7 +121,7 @@ export function Navigation({ activeSection, onSectionChange }: NavigationProps) 
                   scrollToSection(item.id);
                   setIsOpen(false);
                 }}
-                className={`flex items-center space-x-3 w-full px-4 py-3 rounded-lg font-mono text-sm transition-colors ${
+                className={`flex items-center space-x-3 w-full px-4 py-3 rounded-lg font-mono text-base transition-colors ${
                   activeSection === item.id
                     ? 'text-cyan-400 bg-cyan-500/20 border border-cyan-400/50'
                     : 'text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10'
