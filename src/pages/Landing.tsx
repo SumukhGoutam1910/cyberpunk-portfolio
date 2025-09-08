@@ -700,7 +700,7 @@ export default function Landing() {
       <footer className="py-8 border-t border-cyan-500/30 bg-black/80 backdrop-blur-sm relative z-10">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p className="text-gray-400 font-mono">
-            © 2024 Sumukh Goutam. Crafted with{' '}
+            © 2025 Sumukh Goutam. Crafted with{' '}
             <span className="text-pink-400">♥</span>{' '}
             in the digital realm.
           </p>
