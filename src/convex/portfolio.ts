@@ -91,34 +91,35 @@ export const getProjects = query({
 export const getSkills = query({
   args: {},
   handler: async (ctx) => {
+    // Updated to align with resume and refined groupings
     return {
       frontend: [
         { name: "HTML/CSS", level: 90 },
         { name: "React", level: 85 },
-        { name: "TypeScript", level: 75 },
+        { name: "Next.js", level: 70 },
         { name: "Tailwind CSS", level: 85 },
         { name: "Bootstrap", level: 80 },
       ],
       backend: [
         { name: "Node.js/Express", level: 80 },
-        { name: "Python", level: 75 },
-        { name: "Flask (REST API)", level: 70 },
-        { name: "MongoDB", level: 70 },
-        { name: "PostgreSQL", level: 65 },
+        { name: "REST APIs", level: 80 },
+        { name: "Flask", level: 70 },
+        { name: "Django (Learning)", level: 40 },
+        { name: "PostgreSQL/MongoDB", level: 68 },
       ],
       tools: [
         { name: "Git/GitHub", level: 90 },
-        { name: "Docker", level: 65 },
+        { name: "Vercel", level: 80 },
+        { name: "Railway", level: 70 },
         { name: "Kali Linux/Wireshark", level: 75 },
         { name: "RedHat & VMs", level: 70 },
-        { name: "OpenCV", level: 70 },
       ],
       ai: [
-        { name: "TensorFlow", level: 65 },
-        { name: "Data Science", level: 65 },
-        { name: "LangChain (Learning)", level: 40 },
-        { name: "Dart/Flutter (Learning)", level: 45 },
-        { name: "Cybersecurity (Blue/Red basics)", level: 70 },
+        { name: "Computer Vision (OpenCV)", level: 70 },
+        { name: "ML Basics", level: 60 },
+        { name: "Data Science", level: 55 },
+        { name: "TensorFlow (Learning)", level: 45 },
+        { name: "Deep Learning Basics", level: 50 },
       ],
     };
   },
