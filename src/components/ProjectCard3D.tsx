@@ -54,30 +54,20 @@ export function ProjectCard3D({ project, index }: ProjectCard3DProps) {
         transition={{ duration: 2, repeat: Infinity }}
       />
 
-      {/* Project image */}
-      <div className="relative h-48 overflow-hidden">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-        
-        {/* Category badge */}
-        <div className="absolute top-4 left-4 px-3 py-1 bg-cyan-500/20 border border-cyan-400/50 rounded-full backdrop-blur-sm">
-          <span className="text-cyan-400 text-sm font-mono">{project.category}</span>
-        </div>
-
-        {/* Featured badge */}
-        {project.featured && (
-          <div className="absolute top-4 right-4 p-2 bg-pink-500/20 border border-pink-400/50 rounded-full backdrop-blur-sm">
-            <Zap className="w-4 h-4 text-pink-400" />
-          </div>
-        )}
-      </div>
-
       {/* Content */}
       <div className="p-6 space-y-4">
+        {/* Badges row (moved from image area) */}
+        <div className="flex items-center justify-between">
+          <div className="px-3 py-1 bg-cyan-500/20 border border-cyan-400/50 rounded-full backdrop-blur-sm">
+            <span className="text-cyan-400 text-sm font-mono">{project.category}</span>
+          </div>
+          {project.featured && (
+            <div className="p-2 bg-pink-500/20 border border-pink-400/50 rounded-full backdrop-blur-sm">
+              <Zap className="w-4 h-4 text-pink-400" />
+            </div>
+          )}
+        </div>
+
         <h3 className="text-xl font-bold text-white font-mono group-hover:text-cyan-400 transition-colors">
           {project.title}
         </h3>
