@@ -245,6 +245,22 @@
     0% { transform: translateY(-100%); }
     100% { transform: translateY(100%); }
   }
+
+  /* SVG stroke-draw animation for navbar logo */
+  @keyframes textAnimation {
+    0% { stroke-dashoffset: 50; }
+    80% { fill: transparent; }
+    100% { fill: #fff; stroke-dashoffset: 0; }
+  }
+  
+  .logo-stroke-animate {
+    fill: transparent;
+    stroke: #fff;
+    stroke-width: 0.1;
+    stroke-dasharray: 5;
+    stroke-dashoffset: 50;
+    animation: textAnimation 4s ease-in-out 1 forwards;
+  }
 }
 
 /* Custom font classes */
