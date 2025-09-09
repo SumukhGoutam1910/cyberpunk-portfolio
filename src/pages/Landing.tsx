@@ -21,7 +21,8 @@ import {
   Terminal, 
   Twitter,
   Zap,
-  Quote
+  Quote,
+  Instagram
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useQuery } from 'convex/react';
@@ -577,7 +578,7 @@ export default function Landing() {
 
                 <div className="flex space-x-4 mt-8">
                   <motion.a
-                    href="https://github.com/sumukhgoutam"
+                    href="https://github.com/SumukhGoutam1910"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-3 bg-gray-800/50 border border-gray-600/50 rounded-lg hover:border-cyan-400/50 transition-colors"
@@ -587,7 +588,7 @@ export default function Landing() {
                     <Github className="w-5 h-5 text-gray-300 hover:text-cyan-400" />
                   </motion.a>
                   <motion.a
-                    href="https://www.linkedin.com/in/sumukhgoutam0804"
+                    href="https://www.linkedin.com/in/sumukh-goutam-4ab13529b/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-3 bg-gray-800/50 border border-gray-600/50 rounded-lg hover:border-cyan-400/50 transition-colors"
@@ -595,6 +596,17 @@ export default function Landing() {
                     whileTap={{ scale: 0.9 }}
                   >
                     <Linkedin className="w-5 h-5 text-gray-300 hover:text-cyan-400" />
+                  </motion.a>
+                  <motion.a
+                    href="https://www.instagram.com/sumukh_0804/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 bg-gray-800/50 border border-gray-600/50 rounded-lg hover:border-cyan-400/50 transition-colors"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    aria-label="Instagram Profile"
+                  >
+                    <Instagram className="w-5 h-5 text-gray-300 hover:text-cyan-400" />
                   </motion.a>
                   <motion.a
                     href="https://www.kmapsolver.com"
