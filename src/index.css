@@ -259,7 +259,7 @@
     stroke-width: 0.1;
     stroke-dasharray: 5;
     stroke-dashoffset: 50;
-    animation: textAnimation 4s ease-in-out 1 forwards;
+    animation: textAnimation 1s ease-in-out 1 forwards;
   }
 }
 
