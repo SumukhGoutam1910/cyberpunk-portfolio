@@ -282,7 +282,7 @@ export default function Landing() {
                   transition={{ duration: 3, repeat: Infinity }}
                 >
                   <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                    src="https://harmless-tapir-303.convex.cloud/api/storage/347f897e-a564-43c4-92ee-e7295abe9b9e"
                     alt="Sumukh Goutam"
                     className="w-full h-full object-cover rounded-lg"
                   />
