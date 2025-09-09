@@ -252,12 +252,12 @@ export default function Landing() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-black/60 border border-pink-500/30 rounded-lg p-4 text-center">
-                  <div className="text-3xl font-bold text-pink-400">50+</div>
+                  <div className="text-3xl font-bold text-pink-400">5+</div>
                   <div className="text-sm text-gray-400">Projects Completed</div>
                 </div>
                 <div className="bg-black/60 border border-green-500/30 rounded-lg p-4 text-center">
                   <div className="text-3xl font-bold text-green-400">5+</div>
-                  <div className="text-sm text-gray-400">Years Experience</div>
+                  <div className="text-sm text-gray-400">Months Experience</div>
                 </div>
               </div>
             </motion.div>
