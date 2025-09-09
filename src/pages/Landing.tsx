@@ -608,17 +608,6 @@ export default function Landing() {
                   >
                     <Instagram className="w-5 h-5 text-gray-300 transition-all duration-200 group-hover:text-cyan-400 group-hover:scale-110 group-hover:rotate-3" />
                   </motion.a>
-                  <motion.a
-                    href="https://www.kmapsolver.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group p-3 bg-gray-800/50 border border-gray-600/50 rounded-lg hover:border-cyan-400/50 transition-colors"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    aria-label="KmapSolver Website"
-                  >
-                    <Terminal className="w-5 h-5 text-gray-300 transition-all duration-200 group-hover:text-cyan-400 group-hover:scale-110 group-hover:rotate-3" />
-                  </motion.a>
                 </div>
 
                 <motion.a
