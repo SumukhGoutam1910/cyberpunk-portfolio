@@ -581,43 +581,43 @@ export default function Landing() {
                     href="https://github.com/SumukhGoutam1910"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 bg-gray-800/50 border border-gray-600/50 rounded-lg hover:border-cyan-400/50 transition-colors"
+                    className="group p-3 bg-gray-800/50 border border-gray-600/50 rounded-lg hover:border-cyan-400/50 transition-colors"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
-                    <Github className="w-5 h-5 text-gray-300 hover:text-cyan-400" />
+                    <Github className="w-5 h-5 text-gray-300 transition-all duration-200 group-hover:text-cyan-400 group-hover:scale-110 group-hover:rotate-3" />
                   </motion.a>
                   <motion.a
                     href="https://www.linkedin.com/in/sumukh-goutam-4ab13529b/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 bg-gray-800/50 border border-gray-600/50 rounded-lg hover:border-cyan-400/50 transition-colors"
+                    className="group p-3 bg-gray-800/50 border border-gray-600/50 rounded-lg hover:border-cyan-400/50 transition-colors"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
-                    <Linkedin className="w-5 h-5 text-gray-300 hover:text-cyan-400" />
+                    <Linkedin className="w-5 h-5 text-gray-300 transition-all duration-200 group-hover:text-cyan-400 group-hover:scale-110 group-hover:rotate-3" />
                   </motion.a>
                   <motion.a
                     href="https://www.instagram.com/sumukh_0804/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 bg-gray-800/50 border border-gray-600/50 rounded-lg hover:border-cyan-400/50 transition-colors"
+                    className="group p-3 bg-gray-800/50 border border-gray-600/50 rounded-lg hover:border-cyan-400/50 transition-colors"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     aria-label="Instagram Profile"
                   >
-                    <Instagram className="w-5 h-5 text-gray-300 hover:text-cyan-400" />
+                    <Instagram className="w-5 h-5 text-gray-300 transition-all duration-200 group-hover:text-cyan-400 group-hover:scale-110 group-hover:rotate-3" />
                   </motion.a>
                   <motion.a
                     href="https://www.kmapsolver.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 bg-gray-800/50 border border-gray-600/50 rounded-lg hover:border-cyan-400/50 transition-colors"
+                    className="group p-3 bg-gray-800/50 border border-gray-600/50 rounded-lg hover:border-cyan-400/50 transition-colors"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     aria-label="KmapSolver Website"
                   >
-                    <Terminal className="w-5 h-5 text-gray-300 hover:text-cyan-400" />
+                    <Terminal className="w-5 h-5 text-gray-300 transition-all duration-200 group-hover:text-cyan-400 group-hover:scale-110 group-hover:rotate-3" />
                   </motion.a>
                 </div>
 
