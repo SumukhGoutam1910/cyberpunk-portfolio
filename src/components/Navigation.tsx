@@ -47,7 +47,7 @@ export function Navigation({ activeSection, onSectionChange }: NavigationProps) 
                 <Code className="w-5 h-5 text-black" />
               </div>
               <span className="text-white font-mono font-bold text-lg">
-                CYBER<span className="text-cyan-400">DEV</span>
+                PORTFOLIO
               </span>
             </motion.div>
 
