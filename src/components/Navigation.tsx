@@ -151,8 +151,9 @@ export function Navigation({ activeSection, onSectionChange }: NavigationProps) 
               <motion.button
                 key={item.id}
                 onClick={() => {
-                  scrollToSection(item.id);
+                  // Close the menu first, then scroll to prevent layout changes mid-scroll
                   setIsOpen(false);
+                  window.setTimeout(() => scrollToSection(item.id), 250);
                 }}
                 className={`flex items-center space-x-3 w-full px-4 py-3 rounded-lg font-mono text-base transition-colors ${
                   activeSection === item.id
