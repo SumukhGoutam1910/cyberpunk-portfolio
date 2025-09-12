@@ -609,14 +609,14 @@ export default function Landing() {
             {/* Row 1 */}
             <div className="relative overflow-hidden">
               <motion.div
-                className="flex gap-4 sm:gap-6 will-change-transform"
+                className="flex gap-3 sm:gap-6 will-change-transform"
                 animate={{ x: ['0%', '-50%'] }}
                 transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
               >
                 {[...testimonials, ...testimonials].map((t, i) => (
                   <motion.div
                     key={`row1-${i}-${t.name}`}
-                    className="group min-w-[220px] max-w-[220px] sm:min-w-[320px] sm:max-w-[320px] bg-black/70 border border-cyan-500/30 rounded-xl p-4 sm:p-6 backdrop-blur-md"
+                    className="group min-w-[180px] max-w-[180px] sm:min-w-[320px] sm:max-w-[320px] bg-black/70 border border-cyan-500/30 rounded-xl p-3 sm:p-6 backdrop-blur-md"
                     whileHover={{ rotateY: 6, rotateX: 2, z: 40, scale: 1.02 }}
                     transition={{ type: 'spring', stiffness: 120, damping: 12 }}
                     style={{
@@ -628,17 +628,17 @@ export default function Landing() {
                       <img
                         src={t.avatar}
                         alt={t.name}
-                        className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg object-cover border border-cyan-500/40"
+                        className="w-9 h-9 sm:w-12 sm:h-12 rounded-lg object-cover border border-cyan-500/40"
                       />
                       <div>
-                        <div className="text-white font-mono font-bold leading-tight text-sm sm:text-base">{t.name}</div>
-                        <div className="text-xs text-gray-400">{t.role}</div>
+                        <div className="text-white font-mono font-bold leading-tight text-[13px] sm:text-base">{t.name}</div>
+                        <div className="text-[11px] text-gray-400 sm:text-xs">{t.role}</div>
                       </div>
                       <div className="ml-auto p-2 bg-cyan-500/15 border border-cyan-400/40 rounded-lg">
                         <Quote className="w-4 h-4 text-cyan-400" />
                       </div>
                     </div>
-                    <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                    <p className="text-gray-300 text-[11px] sm:text-sm leading-relaxed">
                       "{t.quote}"
                     </p>
                     <div className="mt-3 sm:mt-4 h-px w-full bg-gradient-to-r from-transparent via-cyan-500/40 to-transparent" />
@@ -658,14 +658,14 @@ export default function Landing() {
             {/* Row 2 (reverse direction, slower) */}
             <div className="relative overflow-hidden">
               <motion.div
-                className="flex gap-4 sm:gap-6 will-change-transform"
+                className="flex gap-3 sm:gap-6 will-change-transform"
                 animate={{ x: ['-50%', '0%'] }}
                 transition={{ duration: 26, repeat: Infinity, ease: 'linear' }}
               >
                 {[...testimonials, ...testimonials].map((t, i) => (
                   <motion.div
                     key={`row2-${i}-${t.name}`}
-                    className="group min-w-[220px] max-w-[220px] sm:min-w-[320px] sm:max-w-[320px] bg-black/70 border border-pink-500/30 rounded-xl p-4 sm:p-6 backdrop-blur-md"
+                    className="group min-w-[180px] max-w-[180px] sm:min-w-[320px] sm:max-w-[320px] bg-black/70 border border-pink-500/30 rounded-xl p-3 sm:p-6 backdrop-blur-md"
                     whileHover={{ rotateY: -6, rotateX: 2, z: 40, scale: 1.02 }}
                     transition={{ type: 'spring', stiffness: 120, damping: 12 }}
                     style={{
@@ -677,17 +677,17 @@ export default function Landing() {
                       <img
                         src={t.avatar}
                         alt={t.name}
-                        className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg object-cover border border-pink-500/40"
+                        className="w-9 h-9 sm:w-12 sm:h-12 rounded-lg object-cover border border-pink-500/40"
                       />
                       <div>
-                        <div className="text-white font-mono font-bold leading-tight text-sm sm:text-base">{t.name}</div>
-                        <div className="text-xs text-gray-400">{t.role}</div>
+                        <div className="text-white font-mono font-bold leading-tight text-[13px] sm:text-base">{t.name}</div>
+                        <div className="text-[11px] text-gray-400 sm:text-xs">{t.role}</div>
                       </div>
                       <div className="ml-auto p-2 bg-pink-500/15 border border-pink-400/40 rounded-lg">
                         <Quote className="w-4 h-4 text-pink-400" />
                       </div>
                     </div>
-                    <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                    <p className="text-gray-300 text-[11px] sm:text-sm leading-relaxed">
                       "{t.quote}"
                     </p>
                     <div className="mt-3 sm:mt-4 h-px w-full bg-gradient-to-r from-transparent via-pink-500/40 to-transparent" />
