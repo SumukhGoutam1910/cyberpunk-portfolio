@@ -75,6 +75,7 @@ export default function Landing() {
     { name: 'CSS3', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
     { name: 'React', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
     { name: 'Next.js', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg', dark: true },
+    // Update: TailwindCSS via SimpleIcons for reliability
     { name: 'TailwindCSS', url: 'https://cdn.simpleicons.org/tailwindcss/06B6D4' },
     { name: 'Bootstrap', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg' },
     { name: 'Django', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg', dark: true },
@@ -89,9 +90,11 @@ export default function Landing() {
 
     // Tools
     { name: 'Git', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
-    { name: 'Linux', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg' },
+    // Replace Linux with Kali Linux (SimpleIcons)
+    { name: 'Kali Linux', url: 'https://cdn.simpleicons.org/kalilinux/557C94' },
     { name: 'RedHat', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redhat/redhat-original.svg' },
-    { name: 'AWS (Cloud)', url: 'https://cdn.simpleicons.org/amazonaws/FF9900' },
+    // Update: AWS via SimpleIcons for reliability
+    { name: 'AWS (Cloud)', url: 'https://cdn.simpleicons.org/amazonwebservices/FF9900' },
     { name: 'GitHub Actions (DevOps)', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubactions/githubactions-original.svg' },
 
     // Programming Languages
