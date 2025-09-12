@@ -774,27 +774,31 @@ export default function Landing() {
                     <span className="text-gray-300">sumukhgoutam0804@gmail.com</span>
                   </div>
                   <div className="flex items-center space-x-4">
-                    {/* Phone row with animated border wrapper */}
-                    <motion.div
-                      id="phone-contact"
-                      className={`relative rounded-md p-[2px] ${highlightPhone ? 'shadow-[0_0_20px_rgba(236,72,153,0.35),0_0_30px_rgba(34,211,238,0.35)]' : ''}`}
-                      style={
-                        highlightPhone
-                          ? {
-                              background:
-                                'linear-gradient(90deg, rgba(34,211,238,0.9), rgba(236,72,153,0.9), rgba(34,211,238,0.9))',
-                              backgroundSize: '200% 100%',
-                            }
-                          : {}
-                      }
-                      animate={highlightPhone ? { backgroundPosition: ['0% 50%', '200% 50%', '0% 50%'] } : {}}
-                      transition={highlightPhone ? { duration: 2, repeat: Infinity, ease: 'linear' } : {}}
-                    >
-                      <div className="flex items-center space-x-4 bg-black/40 rounded-md px-3 py-2 border border-pink-500/30">
-                        <Phone className="w-5 h-5 text-pink-400" />
-                        <span className="text-gray-300">+91 9860934944</span>
-                      </div>
-                    </motion.div>
+                    {/* Phone row with conditional animated border on submit */}
+                    <div id="phone-contact" className="w-full">
+                      {highlightPhone ? (
+                        <motion.div
+                          className="relative rounded-md p-[2px]"
+                          style={{
+                            background:
+                              'linear-gradient(90deg, rgba(34,211,238,0.9), rgba(236,72,153,0.9), rgba(34,211,238,0.9))',
+                            backgroundSize: '200% 100%',
+                          }}
+                          animate={{ backgroundPosition: ['0% 50%', '200% 50%', '0% 50%'] }}
+                          transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+                        >
+                          <div className="flex items-center space-x-4 bg-transparent rounded-md px-3 py-2 border border-transparent">
+                            <Phone className="w-5 h-5 text-pink-400" />
+                            <span className="text-gray-300">+91 9860934944</span>
+                          </div>
+                        </motion.div>
+                      ) : (
+                        <div className="flex items-center space-x-4">
+                          <Phone className="w-5 h-5 text-pink-400" />
+                          <span className="text-gray-300">+91 9860934944</span>
+                        </div>
+                      )}
+                    </div>
                   </div>
                   <div className="flex items-center space-x-4">
                     <MapPin className="w-5 h-5 text-green-400" />
