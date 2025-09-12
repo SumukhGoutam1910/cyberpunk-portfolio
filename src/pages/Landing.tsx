@@ -178,7 +178,7 @@ export default function Landing() {
                 transition={{ duration: 2.5, repeat: Infinity, ease: 'linear' }}
                 style={{ backgroundSize: '200% 100%' }}
               >
-                Dude just whatsapp me on my number and the genie will grant you your wishes
+                For now please contact me on the whatsapp number and the genie shall grant your wishes
               </motion.span>
             </div>
           </div>
