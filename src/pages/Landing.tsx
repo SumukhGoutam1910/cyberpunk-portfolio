@@ -2,7 +2,6 @@ import { CyberpunkBackground } from '@/components/CyberpunkBackground';
 import { GlitchText } from '@/components/GlitchText';
 import { Navigation } from '@/components/Navigation';
 import { ProjectCard3D } from '@/components/ProjectCard3D';
-import { SkillsRadar } from '@/components/SkillsRadar';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -343,7 +342,7 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Skills Section */}
+      {/* Skills Section (Cyberpunk progress bars) */}
       <section id="skills" className="py-20 relative z-10">
         <div className="max-w-7xl mx-auto px-4">
           <motion.div
@@ -360,62 +359,105 @@ export default function Landing() {
           </motion.div>
 
           {skills && (
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <SkillsRadar 
-                skills={skills.frontend} 
-                title="Frontend" 
-                color="#00ffff" 
-              />
-              <SkillsRadar 
-                skills={skills.backend} 
-                title="Backend" 
-                color="#ff0080" 
-              />
-              <SkillsRadar 
-                skills={skills.tools} 
-                title="Tools" 
-                color="#00ff00" 
-              />
-              <SkillsRadar 
-                skills={skills.ai} 
-                title="AI/ML" 
-                color="#ff8000" 
-              />
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Card helper as inline fragment to avoid new files */}
+              {/* Frontend */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6 }}
+                className="bg-black/60 border border-cyan-500/30 rounded-xl p-6 backdrop-blur-sm relative overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-purple-500/10 pointer-events-none" />
+                <h3 className="text-2xl font-bold text-cyan-400 mb-2 font-mono">Frontend</h3>
+                <div className="w-12 h-1 bg-cyan-400/60 rounded mb-6" />
+                <div className="space-y-5 relative z-10">
+                  {skills.frontend.map((s, i) => (
+                    <div key={s.name} className="space-y-2">
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-gray-200">{s.name}</span>
+                        <span className="text-cyan-300 font-mono">{s.level}%</span>
+                      </div>
+                      <div className="h-2 rounded-full bg-gray-800/60 border border-cyan-500/20 overflow-hidden">
+                        <motion.div
+                          className="h-full rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 shadow-[0_0_12px_#22d3ee]"
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${s.level}%` }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1, delay: i * 0.08, ease: 'easeOut' }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Backend */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="bg-black/60 border border-pink-500/30 rounded-xl p-6 backdrop-blur-sm relative overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 via-transparent to-cyan-500/10 pointer-events-none" />
+                <h3 className="text-2xl font-bold text-pink-400 mb-2 font-mono">Backend</h3>
+                <div className="w-12 h-1 bg-pink-400/60 rounded mb-6" />
+                <div className="space-y-5 relative z-10">
+                  {skills.backend.map((s, i) => (
+                    <div key={s.name} className="space-y-2">
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-gray-200">{s.name}</span>
+                        <span className="text-pink-300 font-mono">{s.level}%</span>
+                      </div>
+                      <div className="h-2 rounded-full bg-gray-800/60 border border-pink-500/20 overflow-hidden">
+                        <motion.div
+                          className="h-full rounded-full bg-gradient-to-r from-pink-400 via-fuchsia-400 to-rose-500 shadow-[0_0_12px_#f472b6]"
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${s.level}%` }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1, delay: i * 0.08, ease: 'easeOut' }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Tools */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="bg-black/60 border border-green-500/30 rounded-xl p-6 backdrop-blur-sm relative overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-cyan-500/10 pointer-events-none" />
+                <h3 className="text-2xl font-bold text-emerald-400 mb-2 font-mono">Tools</h3>
+                <div className="w-12 h-1 bg-emerald-400/60 rounded mb-6" />
+                <div className="space-y-5 relative z-10">
+                  {skills.tools.map((s, i) => (
+                    <div key={s.name} className="space-y-2">
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-gray-200">{s.name}</span>
+                        <span className="text-emerald-300 font-mono">{s.level}%</span>
+                      </div>
+                      <div className="h-2 rounded-full bg-gray-800/60 border border-green-500/20 overflow-hidden">
+                        <motion.div
+                          className="h-full rounded-full bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-500 shadow-[0_0_12px_#34d399]"
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${s.level}%` }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1, delay: i * 0.08, ease: 'easeOut' }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
             </div>
           )}
-
-          {/* Additional Skills */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="mt-16 grid md:grid-cols-3 gap-8"
-          >
-            <div className="bg-black/60 border border-cyan-500/30 rounded-lg p-6 backdrop-blur-sm">
-              <Code className="w-8 h-8 text-cyan-400 mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">Development</h3>
-              <p className="text-gray-300 text-sm">
-                Full-stack development with modern frameworks and cutting-edge technologies.
-              </p>
-            </div>
-            
-            <div className="bg-black/60 border border-pink-500/30 rounded-lg p-6 backdrop-blur-sm">
-              <Zap className="w-8 h-8 text-pink-400 mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">Performance</h3>
-              <p className="text-gray-300 text-sm">
-                Optimizing applications for speed, scalability, and exceptional user experience.
-              </p>
-            </div>
-            
-            <div className="bg-black/60 border border-green-500/30 rounded-lg p-6 backdrop-blur-sm">
-              <Brain className="w-8 h-8 text-green-400 mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">Innovation</h3>
-              <p className="text-gray-300 text-sm">
-                Pushing boundaries with AI, machine learning, and immersive technologies.
-              </p>
-            </div>
-          </motion.div>
         </div>
       </section>
 
