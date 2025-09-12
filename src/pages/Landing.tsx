@@ -32,6 +32,7 @@ export default function Landing() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
+  const [highlightPhone, setHighlightPhone] = useState(false);
 
   const projects = useQuery(api.portfolio.getProjects) || [];
   const skills = useQuery(api.portfolio.getSkills);
@@ -161,6 +162,14 @@ export default function Landing() {
       ),
       { duration: 5000 }
     );
+
+    // New: Scroll to phone number and animate its border
+    const phoneEl = document.getElementById('phone-contact');
+    if (phoneEl) {
+      phoneEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    setHighlightPhone(true);
+    window.setTimeout(() => setHighlightPhone(false), 3000);
   };
 
   return (
@@ -765,8 +774,27 @@ export default function Landing() {
                     <span className="text-gray-300">sumukhgoutam0804@gmail.com</span>
                   </div>
                   <div className="flex items-center space-x-4">
-                    <Phone className="w-5 h-5 text-pink-400" />
-                    <span className="text-gray-300">+91 9860934944</span>
+                    {/* Phone row with animated border wrapper */}
+                    <motion.div
+                      id="phone-contact"
+                      className={`relative rounded-md p-[2px] ${highlightPhone ? 'shadow-[0_0_20px_rgba(236,72,153,0.35),0_0_30px_rgba(34,211,238,0.35)]' : ''}`}
+                      style={
+                        highlightPhone
+                          ? {
+                              background:
+                                'linear-gradient(90deg, rgba(34,211,238,0.9), rgba(236,72,153,0.9), rgba(34,211,238,0.9))',
+                              backgroundSize: '200% 100%',
+                            }
+                          : {}
+                      }
+                      animate={highlightPhone ? { backgroundPosition: ['0% 50%', '200% 50%', '0% 50%'] } : {}}
+                      transition={highlightPhone ? { duration: 2, repeat: Infinity, ease: 'linear' } : {}}
+                    >
+                      <div className="flex items-center space-x-4 bg-black/40 rounded-md px-3 py-2 border border-pink-500/30">
+                        <Phone className="w-5 h-5 text-pink-400" />
+                        <span className="text-gray-300">+91 9860934944</span>
+                      </div>
+                    </motion.div>
                   </div>
                   <div className="flex items-center space-x-4">
                     <MapPin className="w-5 h-5 text-green-400" />
