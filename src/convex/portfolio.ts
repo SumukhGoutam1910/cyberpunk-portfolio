@@ -96,6 +96,7 @@ export const getSkills = query({
       frontend: [
         { name: "HTML/CSS", level: 90 },
         { name: "React", level: 85 },
+        { name: "TypeScript", level: 75 },
         { name: "Next.js", level: 70 },
         { name: "Tailwind CSS", level: 85 },
         { name: "Bootstrap", level: 80 },
