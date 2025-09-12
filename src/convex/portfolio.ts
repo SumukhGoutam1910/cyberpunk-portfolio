@@ -91,7 +91,7 @@ export const getProjects = query({
 export const getSkills = query({
   args: {},
   handler: async (ctx) => {
-    // Updated to align with resume and refined groupings
+    // Updated to align with requested changes
     return {
       frontend: [
         { name: "HTML/CSS", level: 90 },
@@ -99,20 +99,25 @@ export const getSkills = query({
         { name: "Next.js", level: 70 },
         { name: "Tailwind CSS", level: 85 },
         { name: "Bootstrap", level: 80 },
+        // Moved from backend
+        { name: "Django (Learning)", level: 40 },
+        // Added as requested
+        { name: "Flutter", level: 50 },
       ],
       backend: [
         { name: "Node.js/Express", level: 80 },
         { name: "REST APIs", level: 80 },
         { name: "Flask", level: 70 },
-        { name: "Django (Learning)", level: 40 },
         { name: "PostgreSQL/MongoDB", level: 68 },
+        // Removed Django from backend
       ],
       tools: [
         { name: "Git/GitHub", level: 90 },
-        { name: "Vercel", level: 80 },
-        { name: "Railway", level: 70 },
         { name: "Kali Linux/Wireshark", level: 75 },
         { name: "RedHat & VMs", level: 70 },
+        // Removed Vercel and Railway
+        { name: "Cloud Computing", level: 10 },
+        { name: "DevOps", level: 5 },
       ],
       ai: [
         { name: "Computer Vision (OpenCV)", level: 70 },
