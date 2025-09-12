@@ -139,7 +139,28 @@ export default function Landing() {
 
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success('Message sent! I\'ll get back to you soon.');
+    toast.custom(
+      () => (
+        <motion.div
+          initial={{ opacity: 0, y: 8, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: -8, scale: 0.98 }}
+          transition={{ duration: 0.25 }}
+          className="relative w-full max-w-[420px] overflow-hidden rounded-lg border border-cyan-500/40 bg-black/80 px-4 py-3 text-white shadow-[0_0_24px_rgba(34,211,238,0.35)]"
+        >
+          <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-cyan-500/10 via-transparent to-pink-500/10" />
+          <div className="relative z-10 flex items-start gap-3">
+            <div className="mt-0.5 flex h-7 w-7 items-center justify-center rounded-md border border-cyan-400/50 bg-cyan-500/15 text-cyan-300">
+              ✨
+            </div>
+            <div className="text-sm leading-relaxed">
+              Dude just whatsapp me on my number and the genie will grant you your wishes
+            </div>
+          </div>
+        </motion.div>
+      ),
+      { duration: 5000 }
+    );
   };
 
   return (
