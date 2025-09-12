@@ -95,7 +95,7 @@ export default function Landing() {
     { name: 'Kali Linux', url: 'https://cdn.simpleicons.org/kalilinux/557C94' },
     { name: 'RedHat', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redhat/redhat-original.svg' },
     // Update: AWS (use Devicon for reliability)
-    { name: 'AWS (Cloud)', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg' },
+    { name: 'AWS (Cloud)', url: 'https://cdn.simpleicons.org/amazonaws/FF9900' },
     { name: 'GitHub Actions (DevOps)', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubactions/githubactions-original.svg' },
 
     // Programming Languages
