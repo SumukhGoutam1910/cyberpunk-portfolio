@@ -68,6 +68,39 @@ export default function Landing() {
     },
   ];
 
+  // Add: skill logos to showcase beneath the skills containers
+  const skillLogos = [
+    // Frontend
+    { name: 'HTML5', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+    { name: 'CSS3', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+    { name: 'React', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+    { name: 'Next.js', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg', dark: true },
+    { name: 'TailwindCSS', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg' },
+    { name: 'Bootstrap', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg' },
+    { name: 'Django', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg', dark: true },
+    { name: 'Flutter', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg' },
+
+    // Backend
+    { name: 'Node.js', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+    { name: 'Express', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg', dark: true },
+    { name: 'Flask', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg', dark: true },
+    { name: 'PostgreSQL', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
+    { name: 'MongoDB', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
+
+    // Tools
+    { name: 'Git', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
+    { name: 'Linux', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg' },
+    { name: 'RedHat', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redhat/redhat-original.svg' },
+    { name: 'AWS (Cloud)', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg' },
+    { name: 'GitHub Actions (DevOps)', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubactions/githubactions-original.svg' },
+
+    // Programming Languages
+    { name: 'C', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg' },
+    { name: 'C++', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg' },
+    { name: 'Python', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+    { name: 'Dart', url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg' },
+  ];
+
   // Filter projects by category
   const categories = ['All', ...Array.from(new Set(projects.map(p => p.category)))];
   const filteredProjects = selectedCategory === 'All' 
@@ -490,6 +523,51 @@ export default function Landing() {
               </motion.div>
             </div>
           )}
+
+          {/* Logos Cloud beneath the skill containers */}
+          <div className="mt-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-8"
+            >
+              <h3 className="text-2xl md:text-3xl font-bold font-mono text-white">
+                <span className="text-cyan-400">TECH</span> LOGOS
+              </h3>
+              <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-pink-500 mx-auto mt-3" />
+            </motion.div>
+
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
+              {skillLogos.map((logo, i) => (
+                <motion.div
+                  key={logo.name + i}
+                  className="group relative rounded-xl border border-cyan-500/20 bg-black/40 p-4 overflow-hidden"
+                  whileHover={{ scale: 1.05, rotate: 0 }}
+                  initial={false}
+                  style={{ rotate: (i % 4 === 0 ? -2 : i % 4 === 1 ? 1.5 : i % 4 === 2 ? -1 : 2) + 'deg' }}
+                >
+                  {/* Hover-only gradient for the single tile */}
+                  <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl bg-[radial-gradient(ellipse_at_center,rgba(0,255,255,0.18),transparent_60%)]" />
+                  <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl bg-gradient-to-br from-cyan-500/15 via-transparent to-pink-500/15" />
+
+                  <img
+                    src={logo.url}
+                    alt={logo.name}
+                    className={`relative z-10 mx-auto h-10 w-10 object-contain ${logo.dark ? 'invert' : ''}`}
+                    title={logo.name}
+                  />
+                  <div className="relative z-10 mt-2 text-center text-[10px] uppercase tracking-widest text-gray-400 group-hover:text-cyan-300 transition-colors">
+                    {logo.name}
+                  </div>
+
+                  {/* neon border glow on hover */}
+                  <div className="pointer-events-none absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 ring-1 ring-cyan-400/40 shadow-[0_0_20px_rgba(34,211,238,0.35)]" />
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
