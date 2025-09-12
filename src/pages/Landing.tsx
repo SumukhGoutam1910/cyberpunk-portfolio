@@ -541,7 +541,7 @@ export default function Landing() {
               className="text-center mb-8"
             >
               <h3 className="text-2xl md:text-3xl font-bold font-mono text-white">
-                <span className="text-cyan-400">TECH</span> LOGOS
+                <span className="text-cyan-400">MY</span> TOOLBOX
               </h3>
               <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-pink-500 mx-auto mt-3" />
             </motion.div>
