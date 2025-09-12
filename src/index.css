@@ -131,22 +131,25 @@
     cursor: pointer;
   }
 
-  /* Cyberpunk scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.5);
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #00ffff, #ff0080);
-    border-radius: 4px;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #00cccc, #cc0066);
+  /* Enable custom scrollbars only on >= sm (to keep native mobile scrollbars) */
+  @media (min-width: 640px) {
+    /* Cyberpunk scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.5);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #00ffff, #ff0080);
+      border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, #00cccc, #cc0066);
+    }
   }
 
   /* Cyberpunk selection */

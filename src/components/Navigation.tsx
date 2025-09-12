@@ -22,7 +22,11 @@ export function Navigation({ activeSection, onSectionChange }: NavigationProps) 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Use offset scrolling to account for the fixed navbar height on mobile
+      const headerOffset = 72; // ~ h-16 + small spacing
+      const elementTop = element.getBoundingClientRect().top + window.scrollY;
+      const targetPosition = Math.max(0, elementTop - headerOffset);
+      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
       onSectionChange(sectionId);
     }
   };
