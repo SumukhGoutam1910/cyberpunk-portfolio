@@ -359,7 +359,7 @@ export default function Landing() {
           </motion.div>
 
           {skills && (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {/* Card helper as inline fragment to avoid new files */}
               {/* Frontend */}
               <motion.div
@@ -446,6 +446,38 @@ export default function Landing() {
                       <div className="h-2 rounded-full bg-gray-800/60 border border-green-500/20 overflow-hidden">
                         <motion.div
                           className="h-full rounded-full bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-500 shadow-[0_0_12px_#34d399]"
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${s.level}%` }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1, delay: i * 0.08, ease: 'easeOut' }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Programming Languages (New) */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="bg-black/60 border border-violet-500/30 rounded-xl p-6 backdrop-blur-sm relative overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-transparent to-pink-500/10 pointer-events-none" />
+                <h3 className="text-2xl font-bold text-violet-400 mb-2 font-mono">Programming Languages</h3>
+                <div className="w-12 h-1 bg-violet-400/60 rounded mb-6" />
+                <div className="space-y-5 relative z-10">
+                  {skills.programmingLanguages?.map((s, i) => (
+                    <div key={s.name} className="space-y-2">
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-gray-200">{s.name}</span>
+                        <span className="text-violet-300 font-mono">{s.level}%</span>
+                      </div>
+                      <div className="h-2 rounded-full bg-gray-800/60 border border-violet-500/20 overflow-hidden">
+                        <motion.div
+                          className="h-full rounded-full bg-gradient-to-r from-violet-400 via-fuchsia-400 to-pink-500 shadow-[0_0_12px_#a78bfa]"
                           initial={{ width: 0 }}
                           whileInView={{ width: `${s.level}%` }}
                           viewport={{ once: true }}

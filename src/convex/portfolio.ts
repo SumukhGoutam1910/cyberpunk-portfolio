@@ -105,11 +105,14 @@ export const getSkills = query({
         { name: "Flutter", level: 50 },
       ],
       backend: [
-        { name: "Node.js/Express", level: 80 },
+        // Split Node.js and Express.js
+        { name: "Node.js", level: 80 },
+        { name: "Express.js", level: 78 },
         { name: "REST APIs", level: 80 },
         { name: "Flask", level: 70 },
-        { name: "PostgreSQL/MongoDB", level: 68 },
-        // Removed Django from backend
+        // Split PostgreSQL and MongoDB
+        { name: "PostgreSQL", level: 68 },
+        { name: "MongoDB", level: 70 },
       ],
       tools: [
         { name: "Git/GitHub", level: 90 },
@@ -118,6 +121,13 @@ export const getSkills = query({
         // Removed Vercel and Railway
         { name: "Cloud Computing", level: 10 },
         { name: "DevOps", level: 5 },
+      ],
+      // New container: Programming Languages
+      programmingLanguages: [
+        { name: "C", level: 70 },
+        { name: "C++", level: 65 },
+        { name: "Python", level: 80 },
+        { name: "Dart (Learning)", level: 40 },
       ],
       ai: [
         { name: "Computer Vision (OpenCV)", level: 70 },
