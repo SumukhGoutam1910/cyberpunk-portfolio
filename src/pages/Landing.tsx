@@ -143,27 +143,62 @@ export default function Landing() {
     toast.custom(
       () => (
         <motion.div
-          initial={{ opacity: 0, y: 8, scale: 0.98 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
+          initial={{ opacity: 0, y: 12, scale: 0.96, rotateX: -8 }}
+          animate={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
           exit={{ opacity: 0, y: -8, scale: 0.98 }}
-          transition={{ duration: 0.25 }}
-          className="relative w-full max-w-[420px] overflow-hidden rounded-lg border border-cyan-500/40 bg-black/80 px-4 py-3 text-white shadow-[0_0_24px_rgba(34,211,238,0.35)]"
+          transition={{ duration: 0.3, ease: 'easeOut' }}
+          className="relative w-full max-w-[460px] overflow-hidden rounded-lg border border-cyan-500/40 bg-black/80 px-4 py-3 text-white shadow-[0_0_30px_rgba(34,211,238,0.35)]"
         >
+          {/* rotating neon aura */}
+          <motion.div
+            className="pointer-events-none absolute -inset-16 opacity-25"
+            style={{
+              background:
+                'conic-gradient(from 0deg, rgba(34,211,238,0.15), rgba(236,72,153,0.15), rgba(124,58,237,0.15), rgba(34,211,238,0.15))',
+              filter: 'blur(14px)',
+            }}
+            animate={{ rotate: 360 }}
+            transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
+          />
+          {/* soft linear wash */}
           <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-cyan-500/10 via-transparent to-pink-500/10" />
+
           <div className="relative z-10 flex items-start gap-3">
-            <div className="mt-0.5 flex h-7 w-7 items-center justify-center rounded-md border border-cyan-400/50 bg-cyan-500/15 text-cyan-300">
+            <motion.div
+              className="mt-0.5 flex h-8 w-8 items-center justify-center rounded-md border border-cyan-400/50 bg-cyan-500/15 text-cyan-300"
+              animate={{ rotate: [0, 5, -5, 0] }}
+              transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
+            >
               ✨
-            </div>
+            </motion.div>
             <div className="text-sm leading-relaxed">
-              Dude just whatsapp me on my number and the genie will grant you your wishes
+              <motion.span
+                className="bg-gradient-to-r from-cyan-300 via-pink-300 to-purple-300 bg-clip-text text-transparent"
+                animate={{ backgroundPosition: ['0% 50%', '200% 50%'] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: 'linear' }}
+                style={{ backgroundSize: '200% 100%' }}
+              >
+                Dude just whatsapp me on my number and the genie will grant you your wishes
+              </motion.span>
             </div>
           </div>
+
+          {/* timed progress bar matching toast duration */}
+          <motion.div
+            className="absolute bottom-0 left-0 h-0.5 w-full bg-cyan-500/20"
+          >
+            <motion.div
+              className="h-full bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500"
+              initial={{ width: 0 }}
+              animate={{ width: '100%' }}
+              transition={{ duration: 5, ease: 'linear' }}
+            />
+          </motion.div>
         </motion.div>
       ),
       { duration: 5000 }
     );
 
-    // New: Scroll to phone number and animate its border
     const phoneEl = document.getElementById('phone-contact');
     if (phoneEl) {
       phoneEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
