@@ -615,14 +615,29 @@ export default function Landing() {
               {skillLogos.map((logo, i) => (
                 <motion.div
                   key={logo.name + i}
-                  className="group relative rounded-xl border border-cyan-500/20 bg-black/40 p-4 overflow-hidden"
+                  className="group relative rounded-xl border border-white/10 bg-white/5 backdrop-blur-xl p-4 overflow-hidden shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]"
                   whileHover={{ scale: 1.05, rotate: 0 }}
                   initial={false}
                   style={{ rotate: (i % 4 === 0 ? -2 : i % 4 === 1 ? 1.5 : i % 4 === 2 ? -1 : 2) + 'deg' }}
                 >
                   {/* Hover-only gradient for the single tile */}
-                  <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl bg-[radial-gradient(ellipse_at_center,rgba(0,255,255,0.18),transparent_60%)]" />
-                  <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl bg-gradient-to-br from-cyan-500/15 via-transparent to-pink-500/15" />
+                  <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl bg-[radial-gradient(ellipse_at_center,rgba(0,255,255,0.18),transparent_60%)] z-0" />
+                  <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl bg-gradient-to-br from-cyan-500/15 via-transparent to-pink-500/15 z-0" />
+
+                  {/* Liquid glass: animated translucent blobs (behind content) */}
+                  <motion.div
+                    className="absolute -top-10 -left-10 h-32 w-32 rounded-full bg-cyan-400/15 blur-2xl z-0"
+                    animate={{ x: [0, 20, -10, 0], y: [0, 10, -10, 0] }}
+                    transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+                  />
+                  <motion.div
+                    className="absolute -bottom-12 -right-12 h-40 w-40 rounded-full bg-pink-400/15 blur-2xl z-0"
+                    animate={{ x: [0, -20, 10, 0], y: [0, -12, 8, 0] }}
+                    transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
+                  />
+
+                  {/* Glossy sheen overlay */}
+                  <div className="absolute inset-0 pointer-events-none z-0 [mask-image:linear-gradient(to_bottom,white,transparent_65%)] bg-gradient-to-b from-white/10 via-white/5 to-transparent" />
 
                   {/* Logo: support inline SVG fallback specifically for AWS */}
                   {'inlineSvg' in logo && (logo as any).inlineSvg ? (
@@ -640,12 +655,12 @@ export default function Landing() {
                     />
                   )}
 
-                  <div className="relative z-10 mt-2 text-center text-[10px] uppercase tracking-widest text-gray-400 group-hover:text-cyan-300 transition-colors">
+                  <div className="relative z-10 mt-2 text-center text-[10px] uppercase tracking-widest text-gray-300 group-hover:text-cyan-300 transition-colors">
                     {logo.name}
                   </div>
 
                   {/* neon border glow on hover */}
-                  <div className="pointer-events-none absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 ring-1 ring-cyan-400/40 shadow-[0_0_20px_rgba(34,211,238,0.35)]" />
+                  <div className="pointer-events-none absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 ring-1 ring-cyan-400/30 shadow-[0_0_20px_rgba(34,211,238,0.25)]" />
                 </motion.div>
               ))}
             </div>
